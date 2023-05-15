@@ -18,4 +18,8 @@
       directory="static"
       />
 
+  <adapter
+        factory="edi.chatgpt4plone.browser.controlpanel.ChatGPTConfigConfigletPanel"
+        name="chatgpt4plone-controlpanel" />
+
 </configure>
