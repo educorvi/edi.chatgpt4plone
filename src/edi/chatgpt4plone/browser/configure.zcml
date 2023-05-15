@@ -18,8 +18,11 @@
       directory="static"
       />
 
-  <adapter
-        factory="edi.chatgpt4plone.browser.controlpanel.ChatGPTConfigConfigletPanel"
-        name="chatgpt4plone-controlpanel" />
+  <browser:page
+      name="chatgpt4plone-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="cmf.ManagePortal"
+      class=".controlpanel.ChatGPTControlPanelView"
+      />
 
 </configure>

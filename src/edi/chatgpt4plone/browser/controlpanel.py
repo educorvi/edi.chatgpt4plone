@@ -9,6 +9,8 @@ from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from plone.app.registry.browser.controlpanel import RegistryEditForm
 from plone.restapi.controlpanels import RegistryConfigletPanel
 from zope.component import adapter
+from plone.z3cform import layout
+from z3c.form import form
 
 from edi.chatgpt4plone import _
 
@@ -17,7 +19,8 @@ data_sources = SimpleVocabulary(
      SimpleTerm(value=u'elastic', title=_(u'Elastic Search'))])
 
 models = SimpleVocabulary(
-    [SimpleTerm(value=u'gpt-3.5-turbo', title=_(u'GPT 3.5-Turbo'))])
+    [SimpleTerm(value=u'gpt-3.5-turbo', title=_(u'GPT 3.5-Turbo')),
+     SimpleTerm(value=u'gpt-4', title=_(u'GPT 4'))])
 
 class IChatGPTConfig(Interface):
 
@@ -60,25 +63,14 @@ class IChatGPTConfig(Interface):
 
     @invariant
     def source_invariant(data):
-        if data.data_source != 'catalog':
+        if data.datasource != 'catalog':
             if not sourceurl or not index:
                 raise Invalid(_(u'For choosen data source you must enter Complete URL and Name of Index.'))
 
-class ChatGPTConfigEditForm(RegistryEditForm):
+
+class ChatGPTPanelForm(RegistryEditForm):
+    form.extends(RegistryEditForm)
     schema = IChatGPTConfig
-    schema_prefix = "edi"
-    label = "ChatGPT for Plone Settings"
 
-class ChatGPTConfigPanelFormWrapper(ControlPanelFormWrapper):
-    form = ChatGPTConfigEditForm
-
-@adapter(Interface, Interface)
-class ChatGPTConfigConfigletPanel(RegistryConfigletPanel):
-    """ChatGPT control panel"""
-
-    schema = IChatGPTConfig
-    schema_prefix = "edi"
-    configlet_id = "chatgpt4plone-controlpanel"
-    configlet_category_id = "Products"
-    title = "ChatGPT for Plone Settings"
-    group = "Products"
+ChatGPTControlPanelView = layout.wrap_form(ChatGPTPanelForm, ControlPanelFormWrapper)
+ChatGPTControlPanelView.label = u"ChatGPT for Plone Settings"
