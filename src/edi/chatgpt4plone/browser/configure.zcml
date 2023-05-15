@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="edi.chatgpt4plone">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="edi.chatgpt4plone.interfaces.IEdiChatgpt4PloneLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="edi.chatgpt4plone"
+      type="plone"
+      directory="static"
+      />
+
+</configure>
