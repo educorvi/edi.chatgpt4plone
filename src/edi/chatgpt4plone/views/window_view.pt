@@ -13,10 +13,8 @@
             <h2 i18n:translate="">ChatGPT-Window</h2>
             <p i18n:translate="">To start a chat please prompt your question or search phrase.</p>
 
-	    <!--<simple-websocket-chat websocket_url="ws://entwicklung.educorvi.de:8765"/>-->
 	    <simple-websocket-chat websocket_url="${view/sockethost}:${view/socketport}"/>
 
-            <!--<script src="https://unpkg.com/@educorvi/gpt-frontend@0.0.6/webcomponent_dist/simple-websocket-chat.js"></script>-->
 	    <script src="${navroot}/++resource++edi.chatgpt4plone/simple-websocket-chat.js"></script>
 
           </div>
