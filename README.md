@@ -122,26 +122,21 @@ cd gpt-poc/backend
 ./gpt-poc-backend
 ```
 
-To stop websocket-server type CTRL-C
+To stop websocket-server type: ``` CTRL-C ```
 
-Documentation
--------------
+### Install and configure addons for CMS Plone
 
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+Clone the package edi.chatgpt4plone to src directory of your buildout instance:
 
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+``` bash
+cd src
+git clone https://github.com/educorvi/edi.chatgpt4plone.git
+```
 
 
-Installation
-------------
+Install edi.chatgpt4plone and collective.elasticsearch by adding it to your buildout::
 
-Install edi.chatgpt4plone by adding it to your buildout::
+``` python
 
     [buildout]
 
@@ -149,9 +144,15 @@ Install edi.chatgpt4plone by adding it to your buildout::
 
     eggs =
         edi.chatgpt4plone
+        collective.elasticsearch
+
+    develop = 
+        src/edi.chatgpt4plone
+```
+
+and then running ``` bin/buildout ```
 
 
-and then running ``bin/buildout``
 
 
 Contribute
