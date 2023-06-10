@@ -29,7 +29,7 @@ Thanks to all authors and conributors of used dependencies.
 
 gpt-poc will therefore deliver a client-part (javascript web-component) and a backend-part for communication with Plone Web-CMS, LLM and elastic search engine. 
 
-#### Install with ubuntu package manager
+#### Install gpt-poc with ubuntu package manager
 
 ``` bash
 sudo add-apt-repository ppa:educorvi/experimental
@@ -83,7 +83,7 @@ sudo systemctl status gpt-poc-backend
 Jun 10 19:21:41 ubuntu-8gb-nbg1-2 systemd[1]: Started GPT POC Backend Service.
 ```
 
-#### Install via github checkout in local homefolder
+#### Install gpt-poc via github checkout in local homefolder
 
 ``` bash
 cd ~
@@ -153,28 +153,29 @@ and then running ``` bin/buildout ```
 
 After successful installation you must install and configure both addons for your Plone site via plone_controlpanel:
 
-* you must enable elastic search an rebuild the portal-catalog
+* you must **enable elastic search** an **rebuild the portal-catalog**
 * for this initial relase only the following config-entries for chatgpt4plone are required:
   * URI of websocket server: ws://your.server.domain
   * Port of websocket server: 8765 # Default Value
 
 
-Contribute
-----------
+## Sources
 
-- Issue Tracker: https://github.com/collective/edi.chatgpt4plone/issues
-- Source Code: https://github.com/collective/edi.chatgpt4plone
-- Documentation: https://docs.plone.org/foo/bar
+### gpt-poc
 
+[https://github.com/educorvi/gpt-poc](https://github.com/educorvi/gpt-poc)
 
-Support
--------
+### edi.chatgpt4plone
+
+[https://github.com/educorvi/edi.chatgpt4plone](https://github.com/educorvi/edi.chatgpt4plone)
+
+## Support
+
+[Issue Tracker](https://github.com/educorvi/edi.chatgpt4plone/issues)
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+[info@educorvi.de](info@educorvi.de)
 
+## License
 
-License
--------
-
-The project is licensed under the GPLv2.
+The project is licensed under the MIT Licence.
