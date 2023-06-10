@@ -83,7 +83,7 @@ sudo systemctl status gpt-poc-backend
 Jun 10 19:21:41 ubuntu-8gb-nbg1-2 systemd[1]: Started GPT POC Backend Service.
 ```
 
-### Install via github checkout in local homefolder
+#### Install via github checkout in local homefolder
 
 ``` bash
 cd ~
@@ -133,7 +133,6 @@ cd src
 git clone https://github.com/educorvi/edi.chatgpt4plone.git
 ```
 
-
 Install edi.chatgpt4plone and collective.elasticsearch by adding it to your buildout::
 
 ``` python
@@ -152,7 +151,12 @@ Install edi.chatgpt4plone and collective.elasticsearch by adding it to your buil
 
 and then running ``` bin/buildout ```
 
+After successful installation you must install and configure both addons for your Plone site via plone_controlpanel:
 
+* you must enable elastic search an rebuild the portal-catalog
+* for this initial relase only the following config-entries for chatgpt4plone are required:
+  * URI of websocket server: ws://your.server.domain
+  * Port of websocket server: 8765 # Default Value
 
 
 Contribute
