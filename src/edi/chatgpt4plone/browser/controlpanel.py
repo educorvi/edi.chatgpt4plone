@@ -60,6 +60,15 @@ class IChatGPTConfig(Interface):
             vocabulary=models,
             required=True)
 
+    sockethost = schema.TextLine(title=_("URI of websocket server"),
+            description=_("Host and portnumber will be connected from clients browser, take care about network connection and firewall entries"),
+            default='ws://entwicklung.educorvi.de',
+            required=True)
+
+    socketport = schema.Int(title=_("Port of websocket server"),
+            default=8765,
+            required=True)
+
 
     @invariant
     def source_invariant(data):

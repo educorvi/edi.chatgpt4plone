@@ -54,6 +54,9 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi',
         'plone.app.dexterity',
+        'websockets',
+        'langchain~=0.0.169',
+        'openai~=0.27.2',
     ],
     extras_require={
         'test': [

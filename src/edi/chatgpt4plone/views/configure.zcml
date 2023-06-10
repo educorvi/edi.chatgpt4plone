@@ -8,11 +8,10 @@
 
   <browser:page
     name="window-view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="edi.chatgpt4plone.content.chat_g_p_t_window.IChatGPTWindow"
     class=".window_view.WindowView"
     template="window_view.pt"
     permission="zope2.View"
     />
-
 
 </configure>

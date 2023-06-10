@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
-
 from edi.chatgpt4plone import _
 from Products.Five.browser import BrowserView
-
-# from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
+from websockets.sync.client import connect
+from edi.chatgpt4plone.browser.controlpanel import IChatGPTConfig
+from plone import api as ploneapi
 
 class WindowView(BrowserView):
-    # If you want to define a template here, please remove the template from
-    # the configure.zcml registration of this view.
-    # template = ViewPageTemplateFile('window_view.pt')
 
     def __call__(self):
-        # Implement your own actions:
-        self.msg = _(u'A small message')
+        self.sockethost = ploneapi.portal.get_registry_record('sockethost', interface=IChatGPTConfig)
+        self.socketport = ploneapi.portal.get_registry_record('socketport', interface=IChatGPTConfig)
+        print(self.sockethost, self.socketport)
         return self.index()

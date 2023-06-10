@@ -11,12 +11,9 @@
       layer="edi.chatgpt4plone.interfaces.IEdiChatgpt4PloneLayer"
       />
 
-  <!-- Publish static files -->
-  <plone:static
+  <browser:resourceDirectory
       name="edi.chatgpt4plone"
-      type="plone"
-      directory="static"
-      />
+      directory="static" />
 
   <browser:page
       name="chatgpt4plone-controlpanel"

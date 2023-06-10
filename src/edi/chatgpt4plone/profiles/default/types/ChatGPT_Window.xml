@@ -62,11 +62,11 @@
 
   <!-- View information -->
   <property name="add_view_expr">string:${folder_url}/++add++ChatGPT Window</property>
-  <property name="default_view">view</property>
+  <property name="default_view">window-view</property>
   <property name="default_view_fallback">False</property>
-  <property name="immediate_view">view</property>
+  <property name="immediate_view">window-view</property>
   <property name="view_methods">
-    <element value="view"/>
+    <element value="window-view"/>
   </property>
 
   <!-- Method aliases -->
