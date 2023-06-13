@@ -1,11 +1,11 @@
 # edi.chatgpt4plone
 
-This add-on is a "Proof of Concept" (poc) prototype for integration of ChatGPT3 in Web-CMS Plone. This add-on and the additional system enhancement
+This add-on is a "proof of concept" (poc) prototype for integration of ChatGPT3 in Web-CMS Plone. This add-on and the additional system enhancement
 "gpt-poc" are working on the shoulders of the great LLM-Framework (LLM = Large Language Model) [LangChain](https://python.langchain.com/en/latest/index.html).
 In our first release we assume that the plone site is connected with an local elastic search engine. For the integration of
 elastic search in plone we use the add-on [collective.elasticsearch](https://pypi.org/project/collective.elasticsearch/).
 
-**The base idea is to use the famous LLM ChatGPT3 from openAI together with an own content-database provided by an elastic search engine. The AI-based creative
+**The base idea is to use the well known LLM ChatGPT3 from openAI together with an own content-database provided by an elastic search engine. The AI-based creative
 process to generate answers for prompted questions should use own information sources only!**
 
 The system enhancement gpt-poc will start a websocket-server based application to build a "bridge" between Plone Web-CMS, LLM (using LangChain), the  
@@ -13,7 +13,7 @@ elastic search engine and some other small dependencies illustrated in figure-1.
 
 ![Concept Overview](edi_chatgpt4plone_en.png)
 
-**With this concept the ChatGPT3 Integration will work for other web application environments and other Web-CMS Systems too.**
+**With this concept the ChatGPT3 Integration will work for other web application environments and other Web-CMS Systems too. And because we use LangChain we are able to change the LLM.**
 
 Thanks to all authors and conributors of used dependencies.
 
