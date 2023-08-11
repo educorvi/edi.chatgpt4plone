@@ -8,7 +8,4 @@ from plone import api as ploneapi
 class WindowView(BrowserView):
 
     def __call__(self):
-        self.sockethost = ploneapi.portal.get_registry_record('sockethost', interface=IChatGPTConfig)
-        self.socketport = ploneapi.portal.get_registry_record('socketport', interface=IChatGPTConfig)
-        print(self.sockethost, self.socketport)
         return self.index()

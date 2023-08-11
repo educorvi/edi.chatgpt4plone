@@ -5,21 +5,57 @@
       i18n:domain="edi.chatgpt4plone"
       metal:use-macro="context/main_template/macros/master">
 <body>
-  <metal:block fill-slot="content-core">
-      <div class="container" tal:define="navroot context/@@plone_portal_state/navigation_root_url">
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+      <div class="container" id="main-content" tal:define="navroot context/@@plone_portal_state/navigation_root_url">
+
         <div class="row">
-          <div class="col-12">
-
-            <h2 i18n:translate="">ChatGPT-Window</h2>
-            <p i18n:translate="">To start a chat please prompt your question or search phrase.</p>
-
-	    <simple-websocket-chat websocket_url="${view/sockethost}:${view/socketport}"/>
-
-	    <script src="${navroot}/++resource++edi.chatgpt4plone/simple-websocket-chat.js"></script>
-
-          </div>
+          <span class="col-sm12 col-12" tal:content="structure provider:plone.abovecontenttitle" />
         </div>
-      </div>		      
-  </metal:block>
+
+	<div class="row">
+
+          <div class="col-lg-9 col-12">
+            <h1 tal:content="context/title"/>
+            <!--<span tal:content="structure provider:plone.belowcontenttitle" />-->
+            <p tal:condition="context/description" class="lead mt-5">
+              <span class="dot">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                  <defs></defs>
+                  <circle cx="250" cy="250" r="250" fill="#0063af"></circle>
+                </svg>
+              </span>
+              <span tal:content="context/description"/>
+            </p>
+
+	    <span tal:content="structure provider:plone.abovecontentbody" />
+
+	    <simple-websocket-chat websocket_url="${context/sockethost}:${context/socketport}"/>
+            <!--<script src="https://unpkg.com/@educorvi/gpt-frontend/webcomponent_dist/simple-websocket-chat.js"></script>-->
+	    <script tal:attributes="src string:${navroot}/++resource++edi.chatgpt4plone/simple-websocket-chat.js"></script>
+	  </div>
+
+	  <!-- Portlets -->
+          <div class="col-lg-3 col-12">
+            <div tal:replace="structure context/@@portlet-cards-view"/>
+          </div>
+	  <!-- Ende Portlets -->
+
+        </div>
+
+        <div class="row">
+          <span class="col-lg-9 col-12" tal:content="structure provider:nva.contentcards" />
+        </div>
+
+        <div class="row">
+          <span class="col-lg-9 col-12" tal:content="structure provider:plone.belowcontentbody" />
+        </div>
+
+      </div>
+
+    </tal:main-macro>
+  </metal:main>
+
 </body>
 </html>
